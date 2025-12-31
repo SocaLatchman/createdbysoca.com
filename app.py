@@ -25,6 +25,44 @@ mail = Mail(app)
 db_engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=True)
 
 
+class User(SQLModel, table=True)
+    user_id: int = Field(default=None, primary_key=True)
+    admin: str = Field(unique=True) 
+    password: str
+    last_active: datetime = Field(default=datetime.now())
+    image: str
+    project_id: Optional[int] = Field(default=None, foreign_key="projects.project_id", primary_key=True)
+    style_id: Optional[int] = Field(default=None, foreign_key="style_guide.style_id", primary_key=True)
+    image_id: Optional[int] = Field(default=None, foreign_key="images.image_id", primary_key=True)
+
+class Project(SQLModel, table=True):
+    __tablename__ = 'projects'
+    project_id: int = Field(default=None, primary_key=True)
+    title: str
+    description: str
+    category: str
+    role: str
+    url: str
+    cover: str
+    description: str
+    date_added: datetime = Field(default=datetime.now())
+
+class StyleGuide(SQLModel, table=True):
+    __tablename__ = 'style_guide'
+    style_id: int = Field(default=None, primary_key=True)
+    type: str
+    size: str
+    color: str
+    logo: str
+
+class Images(SQLModel, table=True):
+    image_id: int = Field(default=None, primary_key=True)
+    url: str
+    date_added: datetime = Field(default=datetime.now())
+
+
+class 
+
 
 @app.route('/')
 def home():
