@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, url_for
-from sqlmodel import SQLModel, Session, Field, create_engine
+from sqlmodel import SQLModel, Session, Field, Relationship, create_engine
+from sqlalchemy import event
 from flask_wtf import CSRFProtect
 from email_validator import validate_email, EmailNotValidError
+from passlib.hash import pbkdf2_sha256
 from dotenv import load_dotenv 
 from datetime import datetime
 from flask_mailman import EmailMultiAlternatives, Mail
@@ -24,15 +26,13 @@ csrf = CSRFProtect(app)
 mail = Mail(app)
 db_engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=True)
 
-
-class User(SQLModel, table=True)
+class User(SQLModel, table=True):
     user_id: int = Field(default=None, primary_key=True)
     admin: str = Field(unique=True) 
     password: str
     last_active: datetime = Field(default=datetime.now())
     image: str
     project_id: Optional[int] = Field(default=None, foreign_key="projects.project_id", primary_key=True)
-    style_id: Optional[int] = Field(default=None, foreign_key="style_guide.style_id", primary_key=True)
     image_id: Optional[int] = Field(default=None, foreign_key="images.image_id", primary_key=True)
 
 class Project(SQLModel, table=True):
@@ -46,23 +46,60 @@ class Project(SQLModel, table=True):
     cover: str
     description: str
     date_added: datetime = Field(default=datetime.now())
+    typefaces: List["Typography"] = Relationship(back_populates='typeface')
+    colors: List['Color'] = Relationship(back_populates='color_palette')
+    logo: Optional['Logo'] = Relationship(back_populates='project_logo')
 
-class StyleGuide(SQLModel, table=True):
-    __tablename__ = 'style_guide'
-    style_id: int = Field(default=None, primary_key=True)
-    type: str
-    size: str
+class Typography(SQLModel, table=True):
+    typography_id: int = Field(default=None, primary_key=True)
+    font: str
+    category: str
+    weight: str
+    typeface: Optional[Project] = Relationship(back_populates='typefaces')
+
+class Color(SQLModel, table=True):
+    color_id: str = Field(default=None, primary_key=True)
     color: str
-    logo: str
+    hex_value: str
+    role: str #button, background, accent color etc.
+    color_palette: Optional[Project] = Relationship(back_populates='colors')
 
-class Images(SQLModel, table=True):
+class Logo(SQLModel, table=True):
+    logo_id: int = Field(default=None, primary_key=True)
+    url: str
+    project_logo: Optional[Project] = Relationship(back_populates='logo')
+
+class Image(SQLModel, table=True):
+    __tablename__ = 'images'
     image_id: int = Field(default=None, primary_key=True)
     url: str
     date_added: datetime = Field(default=datetime.now())
 
+class Portfolio:
+    def get_portfolio(session: Session):
+        statement = select(
+            User,
+            Project,
+            Image
+        ).join(Project).join(Image)
+        results = session.exec(statement).all()
+        for user, project, image in results:
+            return {
+                'user' : user.dict(), 
+                'project' : project.dict(), 
+                'image' : image.dict()
+            }
 
-class 
+#enforce foreign keys when you use the engine(or session is created from db_engine)
+def enforce_foreign_keys(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
 
+event.listen(db_engine, "connect", enforce_foreign_keys)
+
+def create_db_and_tables():
+   SQLModel.metadata.create_all(db_engine)
 
 @app.route('/')
 def home():
@@ -102,4 +139,5 @@ def dashboard():
 
 
 if __name__ == '__main__':
+    create_db_and_tables()
     app.run(debug=True)
