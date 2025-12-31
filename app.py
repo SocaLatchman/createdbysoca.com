@@ -27,7 +27,7 @@ db_engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=True)
 
 @app.route('/')
 def home():
-    pass
+    return render_template('index.html', title='Portfolio of Soca Latchman')
 
 @app.route('/about')
 def about():
@@ -35,6 +35,10 @@ def about():
 
 @app.route('/contact')
 def contact():
+    pass
+
+@app.route('/resume')
+def resume():
     pass
 
 @app.route('/blog')
