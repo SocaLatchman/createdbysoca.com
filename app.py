@@ -25,6 +25,7 @@ mail = Mail(app)
 db_engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=True)
 
 
+
 @app.route('/')
 def home():
     return render_template('index.html', title='Portfolio of Soca Latchman')
