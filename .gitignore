@@ -4,3 +4,5 @@ venv/
 static/images/
 data.db
 data.db-journal
+.DS_Store
+static/.DS_Store
