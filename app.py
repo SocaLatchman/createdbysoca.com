@@ -146,8 +146,13 @@ def blog():
 def blog_post():
     pass
 
+@app.route('/project/<project_name>')
+def project(project_name):
+    return render_template('project.html', title='Projects created by Soca Latchman')
+
 @app.route('/projects')
 def projects():
+    '''Return list of dictionaries'''
     pass
 
 @app.route('/cms/signin')
