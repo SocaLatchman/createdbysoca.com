@@ -152,11 +152,15 @@ def projects():
 
 @app.route('/cms/signin')
 def signin():
-    pass
+    return render_template('cms/signin.html')
+
+@app.route('/cms/passcode', methods=['GET','POST'])
+def cms_passcode():
+    return render_template('cms/passcode.html')
 
 @app.route('/cms')
 def cms():
-    pass
+    return render_template('cms/index.html')
 
 
 if __name__ == '__main__':

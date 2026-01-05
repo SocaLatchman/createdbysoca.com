@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="projects">
+   <div class="row-container">
+     <div class="left-content">
+        <header>
+          <p>Web</p>
+          <img src="{{ url_for('static', filename='images/portfolio/') }}" alt="">
+        </header>
+        <header>
+          <div><p>WEB</p></div>
+          <menu>
+             <li>FIGMA</li>
+             <li>HTML</li>
+             <li>CSS</li>
+             <li>PHP</li>
+          </menu>
+        </header>
+        <div id="description">
+           <p>
+            I’m Rockwell “Soca” Latchman, a multidisciplinary designer and developer who builds 
+            minimalist digital products from concept to code. I blend illustration and branding 
+            with functional development for email systems and CRUD applications, favoring lean, 
+            micro-framework tech stacks.
+           </p> 
+        </div>
+     </div>
+     <div class="right-content">
+        <div id="typography">
+          <h3>TYPOGRAPHY</h3>
+          <div class="box">
+            <ul>
+              <li></li>  
+              <li></li>  
+            </ul>
+          </div>
+        </div>
+        <div id="colors">
+           <h3>COLORS</h3> 
+           <div class="color-grid">
+             <div id="ECE9D9"></div>
+             <div id="2F2720"></div>
+             <div id="E2DFCD"></div>
+             <div id="F84A4C"></div>
+           </div>
+        </div>
+        <!-- if logo is availiable, display it -->
+        <div id="logo">
+          <h3>LOGO</h3> 
+          <img src="{{ url_for('static', filename='images/portfolio/') }}" alt="">
+        </div>
+        <div id="images">
+           <h3>IMAGES</h3> 
+           <div class="image-grid">
+             <ul>
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li>
+             </ul>
+             <ul>
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li>
+             </ul>
+             <ul>
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li>
+             </ul>
+             <ul>
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li> 
+               <li><img src="{{ url_for('static', filename='images/portfolio/') }}" alt=""></li>
+             </ul>
+           </div>
+        </div>
+     </div>
+   </div>
+</main>
+{% endblock %}
