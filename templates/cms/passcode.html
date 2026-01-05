@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<main id="cms-signin">
+<main id="cms-passcode">
   <div class="cms-row-container">
     <div class="cms-left-content">
         <img src="{{ url_for('static', filename='images/' )}}" alt="">
@@ -11,17 +11,18 @@
     </div>
     <div class="cms-right-content">
         <header><a href="{{ url_for('home')}}">Return home</a></header>
-        <div id="signin">
-           <p>Weh di go ann Soca? 🇧🇿🐆⚡👋</p> 
+        <div id="passcode">
+           <p>สวัสดีครับ โซกา  🇹🇭🐘⚡👋</p> 
            <form method="POST">
-             <h3>Sign in</h3>  
+             <h3>Passcode</h3>  
              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-             <input type="email" name="email" placeholder="E-mail">
-             <input type="submit" name="continue" value="Continue">
+             <input type="password" name="passcode" placeholder="00001234">
+             <input type="submit" name="signin" value="Sign in">
            </form>
         </div>
       <img src="{{ url_for('static', filename='images/' )}}" class="footer-image" alt="">
     </div>
   </div>
 </main>
-{% endblock %}
+
+{% endblock %} 
