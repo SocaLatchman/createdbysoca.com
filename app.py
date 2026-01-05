@@ -128,7 +128,7 @@ def home():
 
 @app.route('/about')
 def about():
-    pass
+    return render_template('about.html', title='About me')
 
 @app.route('/contact')
 def contact():

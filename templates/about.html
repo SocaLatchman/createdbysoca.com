@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<header class="contact-header">
+    <div>
+       <h2><a href="{{ url_for('home')}}">Soca</a></h2> 
+       <p>UI/Visual Designer/Web + Email Developer</p>
+    </div>
+    <nav>
+       <a href="#">menu</a> 
+    </nav>
+</header>
+<main>
+  <div class="about">
+     <!-- add image here -->
+     <h3>About</h3>
+     <p>
+        I&apos;m Rockwell &quot;Soca&quot; Latchman, a multidisciplinary designer and developer who builds minimalist digital products 
+        from concept to code. I blend illustration and branding with functional development for email systems and CRUD 
+        applications, favoring lean, micro-framework tech stacks.
+     </p>
+  </div>  
+</main>
+<footer>
+  <img src="{{ url_for('static', filename='images/me.gif' )}}" alt="Soca Latchman as a baby" width="125" height="96">
+</footer>
+{% endblock %}
