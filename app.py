@@ -132,7 +132,7 @@ def about():
 
 @app.route('/contact')
 def contact():
-    pass
+    return render_template('contact.html', title='Contact me')
 
 @app.route('/resume')
 def resume():

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<header class="project">
+<header class="project-header">
     <div>
        <h2><a href="{{ url_for('home')}}">Soca</a></h2> 
        <p>UI/Visual Designer/Web + Email Developer</p>
@@ -88,4 +88,8 @@
      </div>
    </div>
 </main>
+<footer>
+  <a href="{{ url_for('contact') }}" role="button">Contact me</a>
+  <img src="{{ url_for('static', filename='images/me.png' )}}" alt="Soca Latchman as a baby" width="125" height="96">
+</footer>
 {% endblock %}

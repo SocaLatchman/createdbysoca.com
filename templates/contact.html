@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<header class="contact-header">
+    <div>
+       <h2><a href="{{ url_for('home')}}">Soca</a></h2> 
+       <p>UI/Visual Designer/Web + Email Developer</p>
+    </div>
+    <nav>
+       <a href="#">menu</a> 
+    </nav>
+</header>
+<main id="contact">
+  <div id="contact-form">
+    <form method="POST">
+     <h3>Contact</h3>
+     <input type="hidden" name="{{ csrf_token }}" value="{{ csrf_token() }}">
+     <input type="text" name="Name" placeholder="Name">
+     <input type="text" name="Subject" placeholder="Subject">
+     <input type="email" name="email" placeholder="E-mail">
+     <textarea name="message" placeholder="Message"></textarea>
+     <input type="submit" value="SEND">
+   </form> 
+  </div>  
+</main>
+<footer>
+  <img src="{{ url_for('static', filename='images/me.gif' )}}" alt="Soca Latchman as a baby" width="125" height="96">
+</footer>
+{% endblock %}
