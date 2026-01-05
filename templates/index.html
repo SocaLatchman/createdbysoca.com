@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<header id="home">
+<div class="container">
+<header id="home-header">
     <div>
        <h2><a href="{{ url_for('home')}}">Soca</a></h2> 
        <p>UI/Visual Designer/Web + Email Developer</p>
@@ -9,7 +10,7 @@
        <a href="#">menu</a> 
     </nav>
 </header>
-<main>
+<main id="home">
     <div id="about">
         <p>
            I&apos;m Rockwell &quot;Soca&quot; Latchman, a multidisciplinary designer and developer who builds minimalist digital products 
@@ -26,9 +27,7 @@
             <li>HTMX</li>
             <li>JavaScript(vanilla + jQuery)</li>
             <li>Python(Flask)</li>
-          </ul>
-           <ul>
-            <li>PHP(LAMP)</li>
+            <li>PHP(LAMP/LEMP)</li>
             <li>Ruby(Sinatra)</li>
             <li>Postgres</li>
             <li>Redis</li>
@@ -43,6 +42,7 @@
             <li>Figma</li>
             <li>Animate</li>
             <li>Design thinking</li>
+            <li>Brand identity</li>
           </ul>
        </div>
     </div>
@@ -226,6 +226,7 @@
 </main>
 <footer>
   <a href="{{ url_for('contact') }}" role="button">Contact me</a>
-  <img src="{{ url_for('static', filename='images/me.png' )}}" alt="Soca Latchman as a baby" width="125" height="96">
+  <img src="{{ url_for('static', filename='images/me.gif' )}}" alt="Soca Latchman as a baby" width="125" height="96">
 </footer>
+</div>
 {% endblock %}
