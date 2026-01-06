@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<main id="cms-signin">
+<main class="cms-signin">
   <div class="cms-row-container">
     <div class="cms-left-content">
         <header class="cms-header">
@@ -17,9 +17,9 @@
     </div>
     <div class="cms-right-content">
         <header><a href="{{ url_for('home')}}">Return home</a></header>
-        <div id="signin">
+        <div class="signin">
            <p>Weh di go ann Soca? 🇧🇿🐆⚡👋</p> 
-           <div id="signin-form">
+           <div class="signin-form">
             <form method="POST">
                 <h3>Sign in</h3>  
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

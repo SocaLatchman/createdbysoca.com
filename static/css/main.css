@@ -237,13 +237,10 @@ height: 100vh;
 
 .cms-right-content {
 background: var(--red-lantern); 
+color: var(--egg-white-ivory);
 width: 40%;  
 height: 100vh;
 z-index: 9;
-}
-
-.cms-right-content {
-color: var(--egg-white-ivory);
 }
 
 .cms-right-content header a {
@@ -256,19 +253,19 @@ text-transform: uppercase;
 text-decoration: none;
 }
 
-#signin {
+.signin {
 width: 600px;    
 margin: 35% auto 0 auto;
 }
 
-#signin p {
+.signin p {
 font: 900 1.3em var(--heading-type);    
 text-align: center;
 margin-bottom: 15px;   
 color: #fff; 
 }
 
-#signin-form {
+.signin-form {
 width: 550px;
 height: 240px;    
 border-radius: 50px;
@@ -277,13 +274,14 @@ padding: 25px;
 filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 
-#signin h3 {
+.signin h3 {
 font: 900 1.3em var(--heading-type);    
 color: var(--red-lantern);  
 margin: 35px 0 0 35px;  
 }
 
-#signin form input[type='email'] {
+.signin form input[type='email'],
+.signin form input[type='password'] {
 margin: 15px 0 0 35px;  
 width: 85%;
 height: 45px;
@@ -295,12 +293,13 @@ outline: transparent;
 color: var(--red-lantern);
 }
 
-#signin form input[type='email']::placeholder {
+.signin form input[type='email']::placeholder,
+.signin form input[type='password']::placeholder {
 color: var(--red-lantern);
 font: 100 1em var(--body-text);
 }
 
-#signin form input[type='submit'] {
+.signin form input[type='submit'] {
 font: 100 0.8em var(--body-text);
 background: var(--red-lantern);
 color: #fff;
@@ -311,7 +310,6 @@ height: 45px;
 float: right;
 margin: 25px 40px 0 0;
 }
-
 
 .cms-right-content .footer-image {
 position: absolute;
@@ -356,7 +354,7 @@ height: 104px;
 
 @media(max-width: 1600px){
 
-#cms-signin {
+.cms-signin {
 background: var(--red-lantern);
 height: 100vh;
 }
@@ -401,12 +399,12 @@ height: auto;
 display: none;
 }
 
-#signin {
+.signin {
 width: 100%;    
 margin: 15% auto 0 auto;
 }
 
-#signin-form {
+.signin-form {
 width: 450px;
 height: 240px;    
 border-radius: 50px;
@@ -426,4 +424,4 @@ color: var(--egg-white-ivory);
 
 }
 
-@media(min-width: 480px) { #signin { margin: 20% auto 0 auto; } }
+@media(min-width: 480px) { .signin { margin: 20% auto 0 auto; } }
