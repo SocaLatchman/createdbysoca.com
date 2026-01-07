@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<main id="cms-passcode">
+<main id="cms">
   <div class="cms-row-container">
     <div class="cms-left-content">
+         <header class="cms-header">
+          <div>
+            <h2><a href="{{ url_for('home')}}">Soca</a></h2> 
+            <p>UI/Visual Designer/Web + Email Developer</p>
+          </div>
+          <nav>
+           <a href="#">menu</a> 
+          </nav>
+        </header>
+       <div class="cms-content">
        <form method="POST">
        <h3>PROJECTS</h3>
        <p>COVER IMAGE</p>
@@ -11,7 +21,7 @@
             DROP IMAGES HERE
             <i class="fa-solid fa-arrow-up-from-bracket"></i>
          </div> 
-         <input type="file" id="cover-image" accept='image/*' hidden>
+         <input type="file" id="cover-image" accept="image/*" hidden>
        </div>
        <p>TITLE</p>
        <input type="text" name="title" id="title">
@@ -43,14 +53,14 @@
             DROP IMAGES HERE
             <i class="fa-solid fa-arrow-up-from-bracket"></i>
          </div> 
-         <input type="file" id="images" accept='image/*' hidden>
+         <input type="file" id="images" accept="image/*" hidden>
        </div>
        <p>TAGS</p>
        <div class="form-flex">
          <input type="text" name="tag[]" class="tag">
-         <input type="text" name="tag[]" class="tag inactive">
-         <input type="text" name="tag[]" class="tag inactive">
-         <input type="text" name="tag[]" class="tag inactive">
+         <input type="text" name="tag[]" class="tag inactive" disabled>
+         <input type="text" name="tag[]" class="tag inactive" disabled>
+         <input type="text" name="tag[]" class="tag inactive" disabled>
        </div>
        <p>TYPOGRAPHY</p> 
        <div class="form-flex">
@@ -64,12 +74,13 @@
          <input type="text" name="hex" id="hex" placeholder="#991DC98">
          <input type="text" name="color-role" id="color-role" placeholder="ROLE">
        </div>
-       <div class="form-flex">
+       <div class="form-flex buttons">
          <input type="button" id="color-fields" value="ADD COLOR FIELDS">
          <input type="button" id="tag-fields" value="ADD TAG FIELDS">
          <input type="submit" name="submit" value="SAVE PROJECT">
        </div>
       </form>
+    </div>
     </div>
     <div class="cms-right-content">
         <nav>
@@ -94,24 +105,33 @@
             </menu>
            </nav> 
          </header>
-        <div class="image-container">
+      <div class="image-container">
             <div class="image-gallery">
-               <img src="{{ url_for('static', filename='images/' )}}" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="sparkles" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="bottom-sparkle" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/miso-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/miso-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/miso-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/miso-thumbnail.png' )}}" alt="">
             </div>
             <div class="image-gallery">
-               <img src="{{ url_for('static', filename='images/' )}}" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="sparkles" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="bottom-sparkle" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/jukebox-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/jukebox-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/jukebox-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/jukebox-thumbnail.png' )}}" alt="">
             </div> 
             <div class="image-gallery">
-               <img src="{{ url_for('static', filename='images/' )}}" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="sparkles" alt="">
-               <img src="{{ url_for('static', filename='images/' )}}" id="bottom-sparkle" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
             </div>
+            <div class="image-gallery">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+               <img src="{{ url_for('static', filename='images/portfolio/wordsmith-thumbnail.png' )}}" alt="">
+            </div> 
        </div>
-      <img src="{{ url_for('static', filename='images/' )}}" class="footer-image" alt="">
+      <img src="{{ url_for('static', filename='images/me.gif' )}}" class="footer-image" alt="">
     </div>
   </div>
 </main>
